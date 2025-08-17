@@ -40,7 +40,7 @@ const Navbar = () => {
                 <span
                   className={`absolute  -bottom-1 h-[2px] bg-orange-600 transition-all duration-300 ease-in-out ${
                     activeLink === link.name
-                      ? "w-full left-0"
+                      ? "w-full text-orange-600 left-0"
                       : "w-0 group-hover:w-full group-hover:left-0"
                   }`}
                 ></span>

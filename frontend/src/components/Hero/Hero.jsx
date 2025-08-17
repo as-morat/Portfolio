@@ -17,7 +17,13 @@ const SocialIcon = ({ href, icon }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-3xl text-gray-600 hover:text-indigo-600 hover:scale-105 transition-transform duration-300"
+    className="
+      text-3xl text-orange-600 
+      hover:text-blue-400 
+      transition-all duration-300 ease-in-out
+      transform hover:scale-110
+      hover:drop-shadow-[0_0_15px_rgba(255,165,0,0.6)]
+    "
   >
     {icon}
   </a>
@@ -105,7 +111,7 @@ export default function Profile() {
         </div>
 
         {/* Right: picture */}
-          <div className="size-48 md:size-80 bg-orange-200 shadow-xl shadow-white/20 rounded-full  hover:shadow-none    transform  flex items-center justify-center overflow-hidden hover:scale-110 transition-transform duration-500">
+          <div className="size-48 md:size-96 bg-indigo-100  shadow-xl shadow-white/20 rounded-full  hover:shadow-none    transform  flex items-center justify-center overflow-hidden hover:scale-110 transition-transform duration-500">
             {/* Inner image rotated back to stay upright */}
             <img
               className="w-full h-full object-cover transform "

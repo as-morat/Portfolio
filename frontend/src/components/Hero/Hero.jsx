@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaPaperPlane, FaDownload } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import bgpic from "../../assets/bg.png";
-import profileImage from "../../assets/profilephoto.png";
-import resume from "../../assets/Al-Shahriar-Mohammad-Rafat.pdf";
+import bgpic from "//bg.png";
+import profileImage from "//profilephoto.png";
+import resume from "//Al-Shahriar-Mohammad-Rafat.pdf";
 
 // Social links
 const socials = [
@@ -21,10 +21,10 @@ const SocialIcon = ({ href, icon }) => (
       relative flex items-center justify-center
       w-8 h-8 rounded-full
       bg-gradient-to-tr from-blue-400 via-indigo-500 to-violet-600
-      text-white text-xl
+      text-white text-xl font-bold
       shadow-md shadow-indigo-400/40
       transition-all duration-300 ease-in-out
-      hover:scale-115 hover:shadow-xl
+      hover:scale-110 hover:shadow-xl
       hover:text-black
     "
   >
@@ -46,18 +46,6 @@ export default function Profile() {
   const [displayedText, setDisplayedText] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-
-  const [reverseGradient, setReverseGradient] = useState({
-    hire: false,
-    resume: false,
-  });
-
-  const toggleGradient = (button) => {
-    setReverseGradient((prev) => ({
-      ...prev,
-      [button]: !prev[button],
-    }));
-  };
 
   useEffect(() => {
     const currentRole = roles[roleIndex];
@@ -86,7 +74,7 @@ export default function Profile() {
       }}
       className="home flex flex-col items-center justify-center min-h-screen px-6 relative text-white"
     >
-      <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl w-full px-8 z-10">
+      <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl w-full px-8 z-10 gap-12 md:gap-0">
         {/* Left: text */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-6 p-6">
           {/* Social icons */}
@@ -97,7 +85,7 @@ export default function Profile() {
           </div>
 
           {/* Name */}
-          <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-violet-600 drop-shadow-lg">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-violet-600 drop-shadow-lg">
             Hello, I'm Ash.
           </h2>
 
@@ -114,64 +102,62 @@ export default function Profile() {
 
           {/* Buttons */}
           <div className="flex space-x-4 mt-6">
-            {/* Hire Me Button: Cyan ↔ Blue */}
-            <button
-              onClick={() => toggleGradient("hire")}
-              className={`
-                px-6 py-3 font-semibold text-white rounded-full shadow-lg
-                bg-gradient-to-r
-                ${reverseGradient.hire ? "from-blue-500 to-cyan-400" : "from-cyan-400 to-blue-500"}
-                shadow-cyan-400/40
-                hover:text-black hover:scale-110 hover:shadow-2xl hover:shadow-blue-600/50
-                transition-all duration-300
-              `}
+            {/* Connect With Me Button - Open Telegram in new tab */}
+            <a
+              href="https://t.me/raf_bit_76"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Hire Me
-            </button>
+              <button
+                className="
+                  flex items-center gap-2 px-6 py-3 font-semibold text-white rounded-full shadow-lg
+                  bg-gradient-to-r from-cyan-400 to-blue-500
+                  hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-400
+                  shadow-cyan-400/40
+                  hover:text-black hover:scale-110 hover:shadow-2xl hover:shadow-blue-600/50
+                  transition-all duration-300
+                "
+              >
+                <FaPaperPlane className="text-xl" />
+                Connect With Me
+              </button>
+            </a>
 
-            {/* Get Resume Button: Orange ↔ Pink */}
+            {/* Resume Button */}
             <a href={resume} download="Al Shahriar Mohammad Rafat.pdf">
               <button
-                onClick={() => toggleGradient("resume")}
-                className={`
-                  px-6 py-3 font-semibold text-white rounded-full shadow-lg
-                  bg-gradient-to-r
-                  ${reverseGradient.resume ? "from-pink-500 to-orange-400" : "from-orange-400 to-pink-500"}
+                className="
+                  flex items-center gap-2 px-6 py-3 font-semibold text-white rounded-full shadow-lg
+                  bg-gradient-to-r from-orange-400 to-pink-500
+                  hover:bg-gradient-to-r hover:from-pink-500 hover:to-orange-400
                   shadow-orange-400/40
                   hover:text-black hover:scale-110 hover:shadow-2xl hover:shadow-orange-600/50
                   transition-all duration-300
-                `}
+                "
               >
-                Get Resume
+                <FaDownload className="text-xl" />
+                My Resume
               </button>
             </a>
           </div>
         </div>
 
-        {/* Right: picture */}
-        <div className="relative group">
-          <div className="size-48 md:size-96 rounded-full overflow-hidden shadow-2xl shadow-indigo-700/40 transform transition duration-500 group-hover:scale-110">
+        {/* Right: profile image */}
+        <div className="relative group w-48 h-48 md:w-96 md:h-96">
+          <div className="w-full h-full rounded-full overflow-hidden shadow-2xl shadow-indigo-700/40 transform transition-transform duration-500 group-hover:scale-110">
             <img
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-full"
               src={profileImage}
               alt="Profile"
             />
           </div>
-          <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-gradient-to-r from-blue-400 to-violet-500 animate-pulse"></div>
         </div>
       </div>
 
       {/* Curved bottom SVG */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-        <svg
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          className="w-full h-24 md:h-40"
-        >
-          <path
-            d="M0,10 C200,120 780,-70 1200,90 L1200,130 L0,150 Z"
-            className="fill-white"
-          ></path>
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-24 md:h-40">
+          <path d="M0,10 C200,120 780,-70 1200,90 L1200,130 L0,150 Z" className="fill-white"></path>
         </svg>
       </div>
     </div>

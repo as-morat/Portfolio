@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -15,12 +15,22 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  // Smooth scroll using scrollIntoView and scroll-margin-top
+  const handleScroll = (e, href) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveLink(navLinks.find((link) => link.href === href).name);
+      if (showMenu) toggleMenu();
+    }
+  };
+
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/0 dark:bg-gray-900/20 backdrop-blur-xl border-b border-white/10 shadow-md">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/0 dark:bg-gray-900/20 backdrop-blur-xl border-b border-white/10 shadow-md transition-colors duration-500">
       <nav className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 md:px-12">
-        
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2">
+        <a href="#home" onClick={(e) => handleScroll(e, "#home")} className="flex items-center gap-2">
           <img
             src="/vite.svg"
             alt="Logo"
@@ -34,10 +44,10 @@ const Navbar = () => {
             <li key={link.name}>
               <a
                 href={link.href}
-                onClick={() => setActiveLink(link.name)}
-                className={`px-3 py-2 rounded-xl transition-all duration-300 ${
+                onClick={(e) => handleScroll(e, link.href)}
+                className={`px-3 py-2 rounded-xl transition-all duration-500 ${
                   activeLink === link.name
-                    ? "bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-400 text-white shadow-md"
+                    ? "bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-400 text-white shadow-lg scale-105"
                     : "hover:text-orange-500 hover:bg-white/30 dark:hover:bg-gray-800/50"
                 }`}
               >
@@ -49,7 +59,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <div
-          className="md:hidden text-3xl text-gray-800 dark:text-gray-100 cursor-pointer hover:text-orange-400 transition-colors"
+          className="md:hidden text-3xl text-gray-800 dark:text-gray-100 cursor-pointer hover:text-orange-400 transition-colors duration-300"
           onClick={toggleMenu}
         >
           <i className="uil uil-apps"></i>
@@ -62,7 +72,7 @@ const Navbar = () => {
           }`}
         >
           <button
-            className="absolute top-6 right-6 text-4xl text-gray-800 dark:text-gray-100 hover:text-orange-400 transition-colors"
+            className="absolute top-6 right-6 text-4xl text-gray-800 dark:text-gray-100 hover:text-orange-400 transition-colors duration-300"
             onClick={toggleMenu}
           >
             <i className="uil uil-times"></i>
@@ -73,13 +83,10 @@ const Navbar = () => {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  onClick={() => {
-                    setActiveLink(link.name);
-                    toggleMenu();
-                  }}
-                  className={`px-4 py-2 rounded-xl transition-all duration-300 ${
+                  onClick={(e) => handleScroll(e, link.href)}
+                  className={`px-4 py-2 rounded-xl transition-all duration-500 ${
                     activeLink === link.name
-                      ? "bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-400 text-white shadow-md"
+                      ? "bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-400 text-white shadow-lg scale-105"
                       : "hover:text-orange-500 hover:bg-white/30 dark:hover:bg-gray-800/50"
                   }`}
                 >

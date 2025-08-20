@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { FaLinkedin, FaGithub, FaPaperPlane, FaDownload } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import bgpic from "//bg.png";
-import profileImage from "//profilephoto.png";
-import resume from "//Al-Shahriar-Mohammad-Rafat.pdf";
+import bgpic from "../../assets/bg.png";
+import profileImage from "../../assets/profilephoto.png";
+import resume from "../../assets/Al-Shahriar-Mohammad-Rafat.pdf";
 
 // Social links
 const socials = [
@@ -66,7 +66,8 @@ export default function Profile() {
   }, [charIndex, roleIndex, roles]);
 
   return (
-    <div
+    <section
+      id="home"
       style={{
         backgroundImage: `url(${bgpic})`,
         backgroundSize: "cover",
@@ -160,6 +161,6 @@ export default function Profile() {
           <path d="M0,10 C200,120 780,-70 1200,90 L1200,130 L0,150 Z" className="fill-white"></path>
         </svg>
       </div>
-    </div>
+    </section>
   );
 }

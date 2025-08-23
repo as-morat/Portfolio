@@ -88,7 +88,7 @@ export default function About() {
           </p>
 
           <p className="text-lg leading-relaxed text-gray-700">
-            💡 Beyond coding, I enjoy solving real-world problems through technology — whether making apps more user-friendly, experimenting with new design patterns, or exploring how AI can be integrated.
+            Beyond coding, I enjoy solving real-world problems through technology — whether making apps more user-friendly, experimenting with new design patterns, or exploring how AI can be integrated.
           </p>
 
           {/* Info Badges */}

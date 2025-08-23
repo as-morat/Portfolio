@@ -1,16 +1,44 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaCode, FaGraduationCap, FaLaptopCode } from "react-icons/fa";
 import profileImage from "../../assets/profile.png";
 
+// Import SVG icons
+import KotlinIcon from "../../assets/icons/kotlin.svg";
+import FlutterIcon from "../../assets/icons/flutter.svg";
+import ComposeIcon from "../../assets/icons/compose.svg";
+import JavaIcon from "../../assets/icons/java.svg";
+import FirebaseIcon from "../../assets/icons/firebase.svg";
+import ReactIcon from "../../assets/icons/react.svg";
+import DsaIcon from "../../assets/icons/dsa.svg";
+import RoomIcon from "../../assets/icons/room.svg";
+import MongoIcon from "../../assets/icons/mongodb.svg";
+
 export default function About() {
+  const skills = [
+    { icon: KotlinIcon, name: "Kotlin" },
+    { icon: FlutterIcon, name: "Flutter" },
+    { icon: ComposeIcon, name: "Jetpack Compose" },
+    { icon: JavaIcon, name: "Java" },
+    { icon: FirebaseIcon, name: "Firebase" },
+    { icon: ReactIcon, name: "React" },
+    { icon: DsaIcon, name: "DSA" },
+    { icon: RoomIcon, name: "Room DB" },
+    { icon: MongoIcon, name: "MongoDB" },
+  ];
+
+  const info = [
+    { title: "Experience", desc: "6+ months Mobile & Android", color: "from-indigo-400 via-indigo-500 to-indigo-600" },
+    { title: "Skills", desc: "Java, Kotlin, Compose, Flutter, Firebase, MongoDB", color: "from-blue-400 via-blue-500 to-cyan-500" },
+    { title: "Education", desc: "B.Sc. in Software Engineering, DIU", color: "from-purple-400 via-purple-500 to-violet-500" },
+  ];
+
   return (
     <section
       id="about"
-      className="w-full min-h-screen bg-gradient-to-b from-white via-cyan-50 to-indigo-100 flex items-center justify-center px-6 py-20 relative"
+      className="w-full min-h-screen bg-gradient-to-b from-white via-cyan-50 to-indigo-100 flex items-center justify-center px-6 py-24 relative"
     >
-      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-16">
-        {/* Premium Profile Image */}
+      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center gap-16">
+        {/* Profile Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -20,14 +48,14 @@ export default function About() {
           <div className="relative w-full h-full overflow-hidden rounded-[60%_40%_60%_40%_/_40%_60%_40%_60%] shadow-2xl shadow-indigo-700/40 transition-transform duration-500 transform hover:scale-105">
             <img
               src={profileImage}
-              alt="About Me"
+              alt="Profile"
               className="w-full h-full object-cover rounded-[inherit] transition-transform duration-500"
             />
             <motion.div
               animate={{ y: [0, -8, 0], rotate: [0, 1, -1, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
               className="absolute inset-0 rounded-[inherit] shadow-[0_0_60px_20px_rgb(132,99,241)] pointer-events-none"
-            ></motion.div>
+            />
             <div className="absolute inset-0 rounded-[inherit] shadow-inner shadow-black/10 pointer-events-none"></div>
           </div>
         </motion.div>
@@ -45,60 +73,51 @@ export default function About() {
             </span>
           </h2>
 
+          {/* About Me */}
           <p className="text-lg leading-relaxed text-gray-700">
-            I’m{" "}
+            Hi, I’m{" "}
             <span className="font-semibold bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent bg-clip-text">
               Al Shahriar Mohammad Rafat (Ash)
-            </span>
-            , currently pursuing B.Sc. in Software Engineering at Daffodil
-            International University. Alongside my studies, I’m growing as an
-            Android App Developer with a strong foundation in Java, OOP, Kotlin,
-            and Jetpack Compose.
+            </span>{" "}
+            — a Software Engineering student and passionate mobile app developer from Bangladesh.
           </p>
 
           <p className="text-lg leading-relaxed text-gray-700">
-            Right now, I’m expanding into Full-Stack App Development by learning
-            Firebase, MongoDB, and modern API integrations. I’m also passionate
-            about UI/UX design and curious about working with AI.
+            I specialize in building modern Android applications using Kotlin and Jetpack Compose, while also creating cross-platform apps with Flutter. 
+            My projects combine clean UI and solid backend integrations using Firebase and MongoDB, ensuring apps that are both beautiful and reliable.
           </p>
 
           <p className="text-lg leading-relaxed text-gray-700">
-            My goal is to transform ideas into seamless, impactful digital
-            experiences that feel premium and intuitive.
+            💡 Beyond coding, I enjoy solving real-world problems through technology — whether making apps more user-friendly, experimenting with new design patterns, or exploring how AI can be integrated.
           </p>
 
-          {/* Info Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            {[
-              {
-                title: "Experience",
-                desc: "6+ months of Mobile & Android Development",
-                icon: <FaLaptopCode className="text-3xl text-indigo-500" />,
-              },
-              {
-                title: "Skills",
-                desc: "Java, Kotlin, Jetpack Compose, Firebase, MongoDB",
-                icon: <FaCode className="text-3xl text-blue-500" />,
-              },
-              {
-                title: "Education",
-                desc: "B.Sc. in Software Engineering @ DIU",
-                icon: <FaGraduationCap className="text-3xl text-violet-500" />,
-              },
-            ].map((card, index) => (
+          {/* Info Badges */}
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+            {info.map((item, i) => (
               <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl border border-gray-100 hover:border-transparent transition-all duration-300 relative overflow-hidden"
+                key={i}
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                className={`px-5 py-3 rounded-2xl bg-gradient-to-r ${item.color} text-white shadow-lg cursor-pointer transition-all duration-300 flex-1 min-w-[180px]`}
               >
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-400 via-indigo-500 to-violet-600"></div>
-                <div className="flex items-center gap-3">
-                  {card.icon}
-                  <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-400 via-indigo-500 to-violet-600 bg-clip-text text-transparent">
-                    {card.title}
-                  </h3>
-                </div>
-                <p className="text-gray-600 mt-3">{card.desc}</p>
+                <h3 className="font-semibold text-base md:text-lg">{item.title}</h3>
+                <p className="text-xs md:text-sm mt-1">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Skill Icons Row */}
+          <div className="flex justify-center md:justify-start gap-4 mt-6 flex-wrap">
+            {skills.map((skill, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.1 }}
+                className="p-2 rounded-xl bg-white shadow-md hover:shadow-xl transition-all cursor-pointer"
+              >
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                />
               </motion.div>
             ))}
           </div>

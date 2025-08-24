@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // Import images
-import Demo1 from "../../assets/profile.png";
+import Demo1 from "../../assets/converter.png";
 import Demo2 from "../../assets/profile.png";
 import Demo3 from "../../assets/profile.png";
 import Demo4 from "../../assets/profile.png";
@@ -14,7 +14,7 @@ const projects = [
     description:
       "A Java-based inventory management system with Swing UI, JDBC, and PDF receipt generation.",
     tech: ["Java", "Swing", "JDBC", "iText"],
-    github: "https://github.com/as-morat",
+    github: "https://github.com/as-morat/Converter",
     demo: "#",
     image: Demo1,
   },

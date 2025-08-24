@@ -54,7 +54,7 @@ export default function Works() {
   // Demo Button Handler
   const handleDemoClick = (demoLink) => {
     if (demoLink === "#" || !demoLink) {
-      setWarning("Demo not available yet.");
+      setWarning("Demo not available for this project.");
       setTimeout(() => setWarning(""), 2500);
     } else {
       window.open(demoLink, "_blank", "noopener,noreferrer");

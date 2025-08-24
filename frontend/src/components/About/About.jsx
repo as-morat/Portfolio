@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import profileImage from "../../assets/profile.png";
-import FiverrIcon from "../../assets/icons/fiverr.svg";
-import UpworkIcon from "../../assets/icons/upwork.svg";
 
 // Skill icons
 import KotlinIcon from "../../assets/icons/kotlin.svg";
@@ -14,6 +12,8 @@ import ReactIcon from "../../assets/icons/react.svg";
 import DsaIcon from "../../assets/icons/dsa.svg";
 import RoomIcon from "../../assets/icons/room.svg";
 import MongoIcon from "../../assets/icons/mongodb.svg";
+import FigmaIcon from "../../assets/icons/figma.svg";
+
 
 // Info badges
 const info = [
@@ -45,6 +45,7 @@ const skills = [
   { icon: DsaIcon, name: "DSA" },
   { icon: RoomIcon, name: "Room DB" },
   { icon: MongoIcon, name: "MongoDB" },
+  {icon: FigmaIcon, name: "Figma"},
 ];
 
 export default function About() {
@@ -117,58 +118,27 @@ export default function About() {
                 }}
                 className={`px-5 py-3 rounded-2xl bg-gradient-to-r ${item.color} text-white shadow-lg cursor-pointer transition-all duration-300 flex-1 min-w-[180px]`}
               >
-                <h3 className="font-semibold text-base md:text-lg">
-                  {item.title}
-                </h3>
+                <h3 className="font-semibold text-base md:text-lg">{item.title}</h3>
                 <p className="text-xs md:text-sm mt-1">{item.desc}</p>
               </motion.div>
             ))}
           </div>
 
           {/* Skills Icons Row */}
-          <div className="flex justify-center md:justify-start gap-3 mt-6 flex-wrap">
+          <div className="flex justify-center md:justify-start gap-4 mt-6 flex-wrap">
             {skills.map((skill, i) => (
               <motion.div
                 key={i}
                 whileHover={{ scale: 1.1 }}
-                className="p-2 rounded-xl bg-white shadow-md hover:shadow-xl transition-all cursor-pointer"
+                className="p-3 rounded-xl bg-white shadow-md hover:shadow-xl transition-all cursor-pointer"
               >
                 <img
                   src={skill.icon}
                   alt={skill.name}
-                  className="w-7 h-7 md:w-8 md:h-8 object-contain"
+                  className="w-8 h-8 md:w-10 md:h-10 object-contain"
                 />
               </motion.div>
             ))}
-          </div>
-
-          {/* Fiverr & Upwork Buttons */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
-            <a
-              href="https://www.fiverr.com/morat46/buying"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 font-semibold text-white rounded-full shadow-lg
-                        bg-gradient-to-r from-indigo-500 to-purple-600
-                         hover:from-purple-600 hover:to-indigo-500
-                         shadow-cyan-400/40 hover:shadow-2xl hover:scale-110 transition-all duration-300"
-            >
-              <img src={FiverrIcon} alt="Fiverr" className="w-5 h-5" />
-              Fiverr
-            </a>
-
-            <a
-              href="https://www.upwork.com/freelancers/~0182122cb9e49e342d?mp_source=share"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 font-semibold text-white rounded-full shadow-lg
-                         bg-gradient-to-r from-yellow-500 to-orange-600
-                         hover:from-orange-600 hover:to-yellow-500
-                         shadow-blue-400/40 hover:shadow-2xl hover:scale-110 transition-all duration-300"
-            >
-              <img src={UpworkIcon} alt="Upwork" className="w-5 h-5" />
-              Upwork
-            </a>
           </div>
         </motion.div>
       </div>

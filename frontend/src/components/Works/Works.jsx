@@ -1,45 +1,47 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // Import images
 import Demo1 from "../../assets/converter.png";
-import Demo2 from "../../assets/profile.png";
-import Demo3 from "../../assets/profile.png";
+import Demo2 from "../../assets/mediator.png";
+import Demo3 from "../../assets/timer.jpg";
 import Demo4 from "../../assets/profile.png";
 
+// Project Data
 const projects = [
   {
-    title: "AshBase Inventory System",
+    title: "Currency & Unit Converter",
     description:
-      "A Java-based inventory management system with Swing UI, JDBC, and PDF receipt generation.",
-    tech: ["Java", "Swing", "JDBC", "iText"],
+      "Kotlin-based converter app with Jetpack Compose, offering real-time currency and unit conversions in a clean UI.",
+    tech: ["Kotlin", "Jetpack Compose"],
     github: "https://github.com/as-morat/Converter",
     demo: "#",
     image: Demo1,
   },
   {
-    title: "Portfolio Website",
+    title: "Meditation UI",
     description:
-      "Responsive premium portfolio with React, Tailwind, Framer Motion, and modern animations.",
-    tech: ["React", "Tailwind", "Framer Motion"],
-    github: "https://github.com/as-morat",
+      "A calm and minimal meditation app UI designed with Jetpack Compose for focused sessions.",
+    tech: ["Kotlin", "Jetpack Compose"],
+    github: "https://github.com/as-morat/Mediator-UI",
     demo: "#",
     image: Demo2,
   },
   {
-    title: "Chat Application",
+    title: "Smart Timer UI",
     description:
-      "Real-time chat app with Firebase authentication and cloud storage.",
-    tech: ["Kotlin", "Compose", "Firebase"],
-    github: "https://github.com/as-morat",
+      "Elegant timer UI built with Jetpack Compose and Canvas, featuring smooth animations and intuitive controls.",
+    tech: ["Kotlin", "Jetpack Compose", "Canvas"],
+    github: "https://github.com/as-morat/Timer-basic-UI",
     demo: "#",
     image: Demo3,
   },
   {
-    title: "Project 4",
-    description: "Another project description.",
-    tech: ["Tech1", "Tech2"],
+    title: "Profile UI Showcase",
+    description:
+      "Modern profile screen design with adaptive layouts and gradient accents for a premium look.",
+    tech: ["Kotlin", "Jetpack Compose"],
     github: "#",
     demo: "#",
     image: Demo4,
@@ -47,6 +49,18 @@ const projects = [
 ];
 
 export default function Works() {
+  const [warning, setWarning] = useState("");
+
+  // Demo Button Handler
+  const handleDemoClick = (demoLink) => {
+    if (demoLink === "#" || !demoLink) {
+      setWarning("Demo not available yet.");
+      setTimeout(() => setWarning(""), 2500);
+    } else {
+      window.open(demoLink, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <section
       id="works"
@@ -61,6 +75,23 @@ export default function Works() {
       >
         My Works
       </motion.h2>
+
+      {/* Warning Notification */}
+      <AnimatePresence>
+        {warning && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-6 left-1/2 -translate-x-1/2 
+                       bg-yellow-100 text-yellow-800 px-4 py-2 
+                       rounded-lg shadow-lg border border-yellow-300 z-50"
+          >
+            {warning}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Project Grid */}
       <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 justify-items-center w-full max-w-7xl px-6 md:px-12">
@@ -78,7 +109,8 @@ export default function Works() {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-500"
+                loading="lazy"
               />
             </div>
 
@@ -116,17 +148,15 @@ export default function Works() {
                 >
                   <FaGithub /> Code
                 </a>
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => handleDemoClick(project.demo)}
                   className="flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white rounded-full shadow-lg
                              bg-gradient-to-r from-orange-400 to-pink-500
                              hover:from-pink-500 hover:to-orange-400
                              hover:text-black hover:scale-105 transition-all duration-300"
                 >
                   <FaExternalLinkAlt /> Demo
-                </a>
+                </button>
               </div>
             </div>
           </motion.div>

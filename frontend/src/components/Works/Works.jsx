@@ -43,9 +43,9 @@ const projects = [
     "An Android app built with Jetpack Compose that showcases the Straw Hat Pirates from One Piece. Features modern UI, character details, Coil-powered image loading, and themed gradients inspired by the anime.",
   tech: ["Kotlin", "Jetpack Compose", "Material 3", "Coil"],
   github: "https://github.com/your-username/Straw-Hat-Info",
-  demo: "#", // replace with demo link if you publish one
-  image: Demo4
-  // image: "https://github.com/user-attachments/assets/4c40c42e-2474-4740-822d-e196c7c84d63"
+  demo: "#", 
+  // image: Demo4
+  image: "https://github.com/user-attachments/assets/4c40c42e-2474-4740-822d-e196c7c84d63"
 }
 
 ];

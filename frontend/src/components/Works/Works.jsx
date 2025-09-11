@@ -44,8 +44,7 @@ const projects = [
   tech: ["Kotlin", "Jetpack Compose", "Material 3", "Coil"],
   github: "https://github.com/your-username/Straw-Hat-Info",
   demo: "#", 
-  // image: Demo4
-  image: "https://github.com/user-attachments/assets/4c40c42e-2474-4740-822d-e196c7c84d63"
+  image: Demo4
 }
 
 ];

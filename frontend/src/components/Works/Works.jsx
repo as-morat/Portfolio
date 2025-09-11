@@ -6,7 +6,7 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import Demo1 from "../../assets/converter.png";
 import Demo2 from "../../assets/mediator.png";
 import Demo3 from "../../assets/timer.jpg";
-import Demo4 from "../../assets/profile.png";
+import Demo4 from "../../assets/projectui.png";
 
 // Project Data
 const projects = [
@@ -38,14 +38,16 @@ const projects = [
     image: Demo3,
   },
   {
-    title: "Profile UI Showcase",
-    description:
-      "Modern profile screen design with adaptive layouts and gradient accents for a premium look.",
-    tech: ["Kotlin", "Jetpack Compose"],
-    github: "#",
-    demo: "#",
-    image: Demo4,
-  },
+  title: "Straw Hat Info",
+  description:
+    "An Android app built with Jetpack Compose that showcases the Straw Hat Pirates from One Piece. Features modern UI, character details, Coil-powered image loading, and themed gradients inspired by the anime.",
+  tech: ["Kotlin", "Jetpack Compose", "Material 3", "Coil"],
+  github: "https://github.com/your-username/Straw-Hat-Info",
+  demo: "#", // replace with demo link if you publish one
+  image: Demo4
+  // image: "https://github.com/user-attachments/assets/4c40c42e-2474-4740-822d-e196c7c84d63"
+}
+
 ];
 
 export default function Works() {

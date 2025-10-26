@@ -4,8 +4,6 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
 
-  const toggleMenu = () => setShowMenu(!showMenu);
-
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -13,8 +11,9 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
-  // Smooth scroll using scrollIntoView and scroll-margin-top
-  const handleScroll = (e, href) => {
+  const toggleMenu = () => setShowMenu(!showMenu);
+
+  const handleScrollClick = (e, href) => {
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {
@@ -24,11 +23,32 @@ const Navbar = () => {
     }
   };
 
+  // Detect section in view on manual scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + window.innerHeight / 3; // adjust midpoint for better detection
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const section = document.querySelector(navLinks[i].href);
+        if (section && scrollPos >= section.offsetTop) {
+          setActiveLink(navLinks[i].name);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/0 dark:bg-gray-900/20 backdrop-blur-xl border-b border-white/10 shadow-md transition-colors duration-500">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-900/30 backdrop-blur-md border-b border-white/20 shadow-md transition-colors duration-500">
       <nav className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 md:px-12">
         {/* Logo */}
-        <a href="#home" onClick={(e) => handleScroll(e, "#home")} className="flex items-center gap-2">
+        <a
+          href="#home"
+          onClick={(e) => handleScrollClick(e, "#home")}
+          className="flex items-center gap-2"
+        >
           <img
             src="/vite.svg"
             alt="Logo"
@@ -42,7 +62,7 @@ const Navbar = () => {
             <li key={link.name}>
               <a
                 href={link.href}
-                onClick={(e) => handleScroll(e, link.href)}
+                onClick={(e) => handleScrollClick(e, link.href)}
                 className={`px-3 py-2 rounded-xl transition-all duration-500 ${
                   activeLink === link.name
                     ? "bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-400 text-white shadow-lg scale-105"
@@ -65,7 +85,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed top-0 right-0 h-screen w-4/5 bg-white/0 dark:bg-gray-900/20 backdrop-blur-xl shadow-2xl transform transition-transform duration-500 ease-in-out ${
+          className={`fixed top-0 right-0 h-screen w-4/5 bg-white/80 dark:bg-gray-900/30 backdrop-blur-md shadow-2xl transform transition-transform duration-500 ease-in-out ${
             showMenu ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -81,7 +101,7 @@ const Navbar = () => {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  onClick={(e) => handleScroll(e, link.href)}
+                  onClick={(e) => handleScrollClick(e, link.href)}
                   className={`px-4 py-2 rounded-xl transition-all duration-500 ${
                     activeLink === link.name
                       ? "bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-400 text-white shadow-lg scale-105"

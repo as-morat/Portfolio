@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // Import images
-import Demo1 from "../../assets/converter.png";
+import Demo1 from "../../assets/mr_ui.png";
 import Demo2 from "../../assets/mediator.png";
 import Demo3 from "../../assets/quizo.png";
 import Demo4 from "../../assets/projectui.png";
@@ -11,11 +11,11 @@ import Demo4 from "../../assets/projectui.png";
 // Project Data
 const projects = [
   {
-    title: "Currency & Unit Converter",
+    title: "A Simple 3 Screens UI",
     description:
-      "Kotlin-based converter app with Jetpack Compose, offering real-time currency and unit conversions in a clean UI.",
-    tech: ["Kotlin", "Jetpack Compose"],
-    github: "https://github.com/as-morat/Converter",
+      "A very Simple three screens mobile app UI for begining learners",
+    tech: ["Dart", "Flutter"],
+    github: "https://github.com/as-morat/UI-Screens-1",
     demo: "#",
     image: Demo1,
   },

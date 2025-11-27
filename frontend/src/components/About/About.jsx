@@ -11,6 +11,8 @@ import FirebaseIcon from "../../assets/icons/firebase.svg";
 import DsaIcon from "../../assets/icons/dsa.svg";
 import RoomIcon from "../../assets/icons/room.svg";
 import FigmaIcon from "../../assets/icons/figma.svg";
+import GitIcon from "../../assets/icons/git.svg";
+import GitHubIcon from "../../assets/icons/github.svg";
 
 
 // Info badges
@@ -41,6 +43,8 @@ const skills = [
   { icon: FirebaseIcon, name: "Firebase" },
   { icon: DsaIcon, name: "DSA" },
   { icon: RoomIcon, name: "Room DB" },
+  {icon: GitIcon, name: "Git"},
+  {icon: GitHubIcon, name: "Github"},
   {icon: FigmaIcon, name: "Figma"},
 ];
 

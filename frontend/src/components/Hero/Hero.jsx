@@ -49,8 +49,7 @@ const SocialIcon = ({ href, icon }) => (
 
 export default function Hero() {
   const roles = useMemo(
-    () => ["A Full Stack Android Developer", "With Kotlin", "& Jetpack Compose"],
-    []
+    () => ["A Mobile App Developer", "Dart . Flutter . Kotlin . JetPack Compose"]
   );
 
   const [displayedText, setDisplayedText] = useState("");

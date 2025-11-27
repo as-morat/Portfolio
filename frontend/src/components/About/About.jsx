@@ -8,10 +8,8 @@ import FlutterIcon from "../../assets/icons/flutter.svg";
 import ComposeIcon from "../../assets/icons/compose.svg";
 import JavaIcon from "../../assets/icons/java.svg";
 import FirebaseIcon from "../../assets/icons/firebase.svg";
-import ReactIcon from "../../assets/icons/react.svg";
 import DsaIcon from "../../assets/icons/dsa.svg";
 import RoomIcon from "../../assets/icons/room.svg";
-import MongoIcon from "../../assets/icons/mongodb.svg";
 import FigmaIcon from "../../assets/icons/figma.svg";
 
 
@@ -19,12 +17,12 @@ import FigmaIcon from "../../assets/icons/figma.svg";
 const info = [
   {
     title: "Experience",
-    desc: "6+ months Mobile & Android",
+    desc: "4+ months Mobile & Android Development (Self-taught).",
     color: "from-indigo-400 via-indigo-500 to-indigo-600",
   },
   {
     title: "Skills",
-    desc: "Java, Kotlin, Compose, Flutter, Firebase, MongoDB",
+    desc: "Java, Kotlin, Compose, Flutter, Firebase",
     color: "from-blue-400 via-blue-500 to-cyan-500",
   },
   {
@@ -41,10 +39,8 @@ const skills = [
   { icon: ComposeIcon, name: "Jetpack Compose" },
   { icon: JavaIcon, name: "Java" },
   { icon: FirebaseIcon, name: "Firebase" },
-  { icon: ReactIcon, name: "React" },
   { icon: DsaIcon, name: "DSA" },
   { icon: RoomIcon, name: "Room DB" },
-  { icon: MongoIcon, name: "MongoDB" },
   {icon: FigmaIcon, name: "Figma"},
 ];
 
@@ -101,10 +97,7 @@ export default function About() {
           </p>
 
           <p className="text-lg md:text-xl leading-relaxed text-gray-700">
-            I specialize in building modern Android applications using Kotlin
-            and Jetpack Compose, while also creating cross-platform apps with
-            Flutter. My projects combine clean UI and solid backend integrations
-            using Firebase and MongoDB.
+           I focus on developing modern mobile apps. My main tools are Kotlin (Jetpack Compose) for native Android and Flutter for cross-platform development. I strive to deliver professional, scalable solutions with simple, clean code in any technology stack.
           </p>
 
           {/* Info Badges */}

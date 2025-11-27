@@ -3,40 +3,41 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // Import images
-import Demo1 from "../../assets/converter.png";
-import Demo2 from "../../assets/mediator.png";
-import Demo3 from "../../assets/timer.jpg";
+import Demo1 from "../../assets/booking.png";
+import Demo2 from "../../assets/todo.png";
+import Demo3 from "../../assets/quizo.png";
 import Demo4 from "../../assets/projectui.png";
 
 // Project Data
 const projects = [
   {
-    title: "Currency & Unit Converter",
+    title: "To-Do",
     description:
-      "Kotlin-based converter app with Jetpack Compose, offering real-time currency and unit conversions in a clean UI.",
-    tech: ["Kotlin", "Jetpack Compose"],
-    github: "https://github.com/as-morat/Converter",
-    demo: "#",
-    image: Demo1,
-  },
-  {
-    title: "Meditation UI",
-    description:
-      "A calm and minimal meditation app UI designed with Jetpack Compose for focused sessions.",
-    tech: ["Kotlin", "Jetpack Compose"],
-    github: "https://github.com/as-morat/Mediator-UI",
+      "A simple and clean Flutter project demonstrating Local Database CRUD operations using SQFlite.",
+    tech: ["Flutter", "Sqflite", "Path Provider"],
+    github: "https://github.com/as-morat/UI-Screens-6",
     demo: "#",
     image: Demo2,
   },
   {
-    title: "Smart Timer UI",
+    title: "Quiz0",
     description:
-      "Elegant timer UI built with Jetpack Compose and Canvas, featuring smooth animations and intuitive controls.",
-    tech: ["Kotlin", "Jetpack Compose", "Canvas"],
-    github: "https://github.com/as-morat/Timer-basic-UI",
+      "A Flutter base ui with smooth navigation modern ui for quiz",
+    tech: ["Flutter","Dart"],
+    github: "https://github.com/as-morat/Quiz0",
     demo: "#",
     image: Demo3,
   },
+  {
+    title: "Booking App",
+    description:
+      "A sleek and modern Flutter-based booking application designed with smooth navigation, elegant UI, and Firebase-powered authentication.",
+    tech: ["Dart", "Flutter", "Riverpod", "Firebase auth", "Sqflite"],
+    github: "https://github.com/as-morat/Hotel-Booking_app",
+    demo: "#",
+    image: Demo1,
+  },
+  
   {
   title: "Straw Hat Info",
   description:
